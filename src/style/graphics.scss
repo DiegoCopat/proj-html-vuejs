@@ -1,12 +1,48 @@
+@import "../style/colors.scss";
+body {
+    font-family: 'Roboto';
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+
+// TEXT CSS
+.text-1 {
+    font-size: 20px;
+}
+.text-2 {
+    font-size: 45px;
+    font-weight: 700;
+    color: $goldenrod;
+}
+.text-3 {
+    font-size: 45px;
+    font-weight: 700;
+    color: $white;
+}
+
+// CLASS CSS
 .wrapper {
+    position: relative;
+    display: flex;
     width: 60%;
     height: 100%;
-    border: 1px solid white; 
+    // border: 1px solid white; 
     margin: auto;
 }
+
+.button-1 {
+    padding: 10px 20px;
+    color: $white;
+    background-color: $cardinal;
+    border-radius: 15px;
+    border: none;
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+// ELEMENT
