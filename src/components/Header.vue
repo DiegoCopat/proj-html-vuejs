@@ -9,12 +9,12 @@
                 </div>
                 <div class="right">
                     <ul>
-                        <li v-for="(elementMenu, index) in menu" :key="index" :class="elementMenu.active ? 'active' : ''" >
-                            <a href="">
+                        <li v-for="(elementMenu, index) in menu" :key="index" :class="index == elementNumber ? 'active' : ''" 
+                        @click="getUserActive(index)">
+                            <a href="#">
                                 {{ elementMenu.nome }} 
-                                <i v-if="elementMenu.active == true" class="fas fa-chevron-down"></i>
+                                <i v-if="index == elementNumber" class="fas fa-chevron-down"></i>
                             </a> 
-                            
                         </li>
                         <li>
                             <a href=""><i class="fas fa-shopping-cart"></i></a>
@@ -86,17 +86,20 @@ export default {
                 }
                 
             ],
-            currentActive: ""
+            elementNumber: 0,
         }
     },
     methods: {
-        getUserActive: function(element, index) {
-            console.log(element, index);
+        getUserActive: function(index) {
+            this.elementNumber = index;
         }
-
-        
     }
 }
+        
+
+        
+    
+
 </script>
 
 <style lang="scss" scope>
@@ -153,11 +156,25 @@ export default {
                             list-style: none;
                             font-size: 12px;
                             font-weight: 700;
-
+                            &.active a{
+                                color: $goldenrod;
+                            }
                             a{
                                 text-decoration: none;
                                 color: $white;
+
+                                &:hover {
+                                    cursor: pointer;
+                                    color: $goldenrod;
+                                }
+                                
+                                i {
+                                    margin-left: 5px;
+                                }
                             }
+                            
+                            
+                            
                         }
                     }
                 }
@@ -169,9 +186,13 @@ export default {
                 // border: 1px solid $white;
                 button i{
                     margin-left: 5px;
+                    transition: font-weight 2s;
+
                 }
                 button:hover {
                     cursor: pointer;
+                    font-weight: 700;
+                    transition-duration: 2s;
                 }
 
                 h3 {
